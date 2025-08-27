@@ -1,0 +1,36 @@
+import React from 'react';
+import { View, StyleSheet, Image, ViewProps } from 'react-native';
+import { Text } from 'react-native-paper';
+import { colors } from '../theme/colors';
+import { RightChevron } from './IconBadge';
+
+type Props = ViewProps & {
+  left?: React.ReactNode;
+  title: string;
+  subtitle?: string;
+  actionLabel?: string;
+  onPressAction?: () => void;
+  right?: React.ReactNode;
+};
+
+export default function ListRow({ left, title, subtitle, actionLabel, right, style }: Props) {
+  return (
+    <View style={[styles.row, style]}>
+      <View style={styles.left}>{left}</View>
+      <View style={styles.center}>
+        <Text style={styles.title}>{title}</Text>
+        {subtitle ? <Text style={styles.subtitle}>{subtitle}</Text> : null}
+      </View>
+      {right ? right : actionLabel ? <Text style={styles.action}>{actionLabel}</Text> : <RightChevron />}
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  row: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 16, paddingVertical: 14 },
+  left: { width: 32, alignItems: 'center' },
+  center: { flex: 1 },
+  title: { color: colors.textPrimary, fontWeight: '700', fontSize: 17, letterSpacing: 0.1 },
+  subtitle: { color: colors.textMuted, marginTop: 2 },
+  action: { color: colors.textMuted },
+});
