@@ -7,6 +7,7 @@ import { useRouter } from './RouterProvider';
 import MessagesScreen from '../../screens/MessagesScreen';
 import AccountScreen from '../../screens/AccountScreen';
 import Cuidados from '../../screens/CareScreen';
+import CheckUps from '../../screens/CheckUps';
 
 const screens: Record<RouteName, React.ComponentType> = {
   Login: () => {
@@ -18,6 +19,7 @@ const screens: Record<RouteName, React.ComponentType> = {
   Messages: MessagesScreen,
   Account: AccountScreen,
   Care: Cuidados,
+  Checkups: CheckUps,
 };
 
 export default function ScreenRegistry() {

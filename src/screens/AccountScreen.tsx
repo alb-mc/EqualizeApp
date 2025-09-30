@@ -6,9 +6,10 @@ import { colors } from '../theme/colors';
 import Icon from '../design-system/Icon';
 import { layout } from '../theme/layout';
 import { useRouter } from '../app/router/RouterProvider';
+import BottomNavbar from '../components/BottomNavbar';
 
 export default function AccountScreen() {
-  const { goBack } = useRouter();
+  const { goBack, navigate } = useRouter();
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.headerRow}>
@@ -17,7 +18,7 @@ export default function AccountScreen() {
         <View style={{ width: 40 }} />
       </View>
 
-      <ScrollView contentContainerStyle={styles.content}>
+  <ScrollView contentContainerStyle={[styles.content, { paddingBottom: 140 }]}>
         {/* Top profile section (placeholder image from FIGMA template should be placed here) */}
         <View style={styles.profileCard}>
           <View style={styles.avatarPlaceholder}>
@@ -37,6 +38,18 @@ export default function AccountScreen() {
         {/* Additional content placeholder */}
         <View style={{ height: 200 }} />
       </ScrollView>
+
+      <BottomNavbar
+        items={[
+          { key: 'home', label: 'Página Inicial', icon: 'home-outline', onPress: () => navigate('Main') },
+          { key: 'identity', label: 'Identidade', icon: 'face-man-outline', onPress: () => navigate('Account') },
+          { key: 'care', label: 'Cuidados', icon: 'molecule', onPress: () => navigate('Care') },
+          { key: 'regen', label: 'Regeneração', icon: 'arrow-collapse-vertical' },
+          { key: 'maint', label: 'Manutenção', icon: 'account-cog-outline' },
+          { key: 'checks', label: 'Checkups', icon: 'clipboard-pulse-outline', onPress: () => navigate('Checkups') },
+          { key: 'trail', label: 'Trilha', icon: 'map-marker-path' },
+        ]}
+      />
     </SafeAreaView>
   );
 }

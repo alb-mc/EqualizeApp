@@ -49,11 +49,11 @@ export default function Cuidados() {
       <BottomNavbar
         items={[
           { key: 'home', label: 'Página Inicial', icon: 'home-outline', onPress: () => navigate('Main') },
-          { key: 'identity', label: 'Identidade', icon: 'face-man-outline' },
+          { key: 'identity', label: 'Identidade', icon: 'face-man-outline', onPress: () => navigate('Account') },
           { key: 'care', label: 'Cuidados', icon: 'molecule', onPress: () => navigate('Care') },
           { key: 'regen', label: 'Regeneração', icon: 'arrow-collapse-vertical', onPress: () => navigate('Next') },
           { key: 'maint', label: 'Manutenção', icon: 'account-cog-outline' },
-          { key: 'checks', label: 'Checkups', icon: 'clipboard-pulse-outline' },
+          { key: 'checks', label: 'Checkups', icon: 'clipboard-pulse-outline', onPress: () => navigate('Checkups') },
           { key: 'trail', label: 'Trilha', icon: 'map-marker-path' },
         ]}
       />
