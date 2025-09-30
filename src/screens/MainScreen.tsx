@@ -32,12 +32,13 @@ export default function MainScreen() {
   const listRef = React.useRef<FlatList>(null);
   const { width } = useWindowDimensions();
   const inset = Math.max(SIDE_SPACING, (width - ITEM_WIDTH) / 2);
-  // Calcula a posição superior do card flutuante com base nas medidas reais
+  // Posiciona o card flutuante abaixo do header (não mais sobrepondo)
   const floatTop = React.useMemo(() => {
-    if (headerH && floatH) return Math.max(12, headerH - floatH / 2);
-    if (headerH) return Math.max(12, headerH - 40); // fallback aproximado antes de medir o card
-    return 68; // valor inicial até obter medidas
-  }, [headerH, floatH]);
+    // posiciona o topo do card exatamente no final do header (sem gap externo)
+    const GAP = 0; // nenhum espaçamento externo
+    if (headerH) return headerH + GAP;
+    return GAP; // até medir o header
+  }, [headerH]);
   return (
     <View style={styles.container}>
       <AppHeader
@@ -45,7 +46,9 @@ export default function MainScreen() {
         name="Monica!"
         unreadCount={state?.unreadCount}
         onPressMessages={() => navigate('Messages')}
+        onPressProfile={() => navigate('Account')}
         onLayout={(e) => { easeNextLayout(); setHeaderH(e.nativeEvent.layout.height); }}
+        includeSpacer={true}
       />
       {/* Section flutuante: Próximo procedimento (fora do Header) */}
       <View style={[styles.floatingCard, { top: floatTop }]}> 
@@ -58,7 +61,7 @@ export default function MainScreen() {
 
   <ScrollView contentContainerStyle={[
           styles.scroll,
-          { paddingTop: headerH + (floatH ? floatH / 2 : 40) + 12 }, // respiro um pouco maior abaixo do card
+          { paddingTop: 16 },
         ]}>
   {/* Mensagens ficam apenas na tela dedicada de Mensagens */}
         <SectionHeader title="Novidades para você!" action={<Text accessibilityRole="button" style={styles.actionLink}>Ver mais</Text>} />
@@ -129,7 +132,7 @@ export default function MainScreen() {
         items={[
           { key: 'home', label: 'Página Inicial', icon: 'home-outline' },
           { key: 'identity', label: 'Identidade', icon: 'face-man-outline' },
-          { key: 'care', label: 'Cuidados', icon: 'molecule' },
+          { key: 'care', label: 'Cuidados', icon: 'molecule', onPress: () => navigate('Care') },
           { key: 'regen', label: 'Regeneração', icon: 'arrow-collapse-vertical' },
           { key: 'maint', label: 'Manutenção', icon: 'account-cog-outline' },
           { key: 'checks', label: 'Checkups', icon: 'clipboard-pulse-outline' },
@@ -166,21 +169,22 @@ const styles = StyleSheet.create({
   dotActive: { backgroundColor: '#BFD5CD', width: 8, height: 8, borderRadius: 4 },
   floatingCard: {
     position: 'absolute',
-    left: layout.floatingHorizontal,
-    right: layout.floatingHorizontal,
-    backgroundColor: colors.surfaceAlt,
+    // ocupar toda a largura da tela para que o cartão interno preencha até as laterais
+    left: 0,
+    right: 0,
+    // manter arredondamento visual mas não pintar fundo aqui para preservar a translucidez do cartão interno
     borderRadius: layout.floatingCardRadius,
-  borderWidth: 1,
-  borderColor: '#2E3B37',
-  overflow: 'hidden',
-  paddingBottom: 6,
-    
-  // sombra para flutuar sobre o conteúdo
+    backgroundColor: 'transparent',
+    borderWidth: 0,
+    overflow: 'visible',
+    paddingBottom: 0,
+
+    // sombra leve para o conjunto (a sombra principal fica no próprio card interno)
     shadowColor: '#000',
-    shadowOpacity: 0.28,
-    shadowRadius: 20,
-    shadowOffset: { width: 0, height: 10 },
-    elevation: 8,
-  zIndex: 20,
+    shadowOpacity: 0.06,
+    shadowRadius: 6,
+    shadowOffset: { width: 0, height: 4 },
+    elevation: 1,
+    zIndex: 20,
   },
 });

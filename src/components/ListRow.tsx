@@ -28,7 +28,7 @@ export default function ListRow({ left, title, subtitle, actionLabel, right, sty
 
 const styles = StyleSheet.create({
   row: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 16, paddingVertical: 14 },
-  left: { width: 32, alignItems: 'center' },
+  left: { width: 40, alignItems: 'center' },
   center: { flex: 1 },
   title: { color: colors.textPrimary, fontWeight: '700', fontSize: 17, letterSpacing: 0.1 },
   subtitle: { color: colors.textMuted, marginTop: 2 },
