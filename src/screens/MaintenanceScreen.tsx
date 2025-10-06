@@ -8,8 +8,9 @@ import { useRouter } from '../app/router/RouterProvider';
 import Icon from '../design-system/Icon';
 import AppHeader from '../components/AppHeader';
 
-export default function CheckUps() {
+export default function MaintenanceScreen() {
   const { navigate, goBack } = useRouter();
+
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <AppHeader
@@ -23,18 +24,18 @@ export default function CheckUps() {
       <ScrollView contentContainerStyle={styles.content}>
         {/* Título da seção */}
         <View style={styles.titleSection}>
-          <Icon name="clipboard-pulse-outline" size={24} color={colors.textPrimary} />
-          <Text style={styles.sectionTitle}>Checkups</Text>
+          <Icon name="cog" size={24} color={colors.textPrimary} />
+          <Text style={styles.sectionTitle}>Manutenção</Text>
         </View>
 
         {/* Subtítulo */}
         <Text style={styles.subtitle}>
-          Sua trilha de tratamentos a longo prazo
+          Tratamentos para a manutenção da vitalidade da sua pele
         </Text>
 
         {/* Texto principal */}
         <Text style={styles.mainText}>
-          Os checkups são agendamentos feitos para checar a evolução dos tratamentos, para exame físico da pele para checar surgimento de alguma lesão e dar continuidade a sua trilha de cuidados em casa e na clínica.
+          Os tratamentos de manutenção são procedimentos e cuidados contínuos que ajudam a preservar a saúde, o vigor e a uniformidade da pele ao longo do tempo. Eles são indicados para prevenir os sinais de flacidez, contornar a obesidade ou ressecamento, minimizar manchas e manter a pele sempre bonita e bem cuidada. São tratamentos indicados para prolongar os resultados já alcançados e não deixar que os sinais que antes incomodavam retornem. Principais Tratamentos de Manutenção: 1. Limpeza de Pele Profunda - Remove impurezas, cravos e células mortas, prevenindo acne e melhora a absorção de ativos. 2. Peelings Superficiais - Estimulam a renovação celular, clareiam manchas leves e melhoram a textura da pele. 3. Laser e Luz Pulsada - Tratam manchas, vasinhos, estimulam colágeno e ajudam no controle da obesidade. 4. Skinbooster e Bioestimuladores - Hidratação profunda e estímulo de colágeno para melhorar a firmeza e viço da pele. 5. Microagulhamento - Estimula colágeno, melhora cicatrizes e textura da pele. 6. Toxina Botulínica (Botox®) Preventivo - Mantém a pele lisa e previne rugas profundas. 7. Preenchimentos Leves - Para reposição sutil de volume e contorno facial. Além dos procedimentos dermatológicos, o uso diário de protetor solar, antioxidantes, hidratantes adequados e uma alimentação equilibrada são essenciais para manter os resultados.
         </Text>
 
         {/* Seção de procedimentos */}
@@ -52,29 +53,29 @@ export default function CheckUps() {
             </View>
             <View style={styles.timelineContent}>
               <Text style={styles.timelineDate}>08 de agosto de 2025</Text>
-              <Text style={styles.timelineTitle}>Rever Programação</Text>
+              <Text style={styles.timelineTitle}>Volnewmer</Text>
             </View>
           </View>
 
           {/* Item 2 */}
           <View style={styles.timelineItem}>
             <View style={styles.timelineIconContainer}>
-              <Icon name="check-circle-outline" size={20} color={colors.textMuted} />
+              <Icon name="calendar-outline" size={20} color={colors.textMuted} />
             </View>
             <View style={styles.timelineContent}>
               <Text style={styles.timelineDate}>17 de setembro de 2025</Text>
-              <Text style={styles.timelineTitle}>Acompanhamento</Text>
+              <Text style={styles.timelineTitle}>Hydrafacial -30 Minutos</Text>
             </View>
           </View>
 
           {/* Item 3 */}
           <View style={styles.timelineItem}>
             <View style={styles.timelineIconContainer}>
-              <Icon name="check-circle-outline" size={20} color={colors.textMuted} />
+              <Icon name="alert-circle-outline" size={20} color={colors.textMuted} />
             </View>
             <View style={styles.timelineContent}>
               <Text style={styles.timelineDate}>15 de setembro de 2025</Text>
-              <Text style={styles.timelineTitle}>Acompanhamento</Text>
+              <Text style={styles.timelineTitle}>MMP Couro Cabeludo</Text>
             </View>
           </View>
 
@@ -85,7 +86,7 @@ export default function CheckUps() {
             </View>
             <View style={styles.timelineContent}>
               <Text style={styles.timelineDate}>15 de julho de 2025</Text>
-              <Text style={styles.timelineTitle}>Acompanhamento</Text>
+              <Text style={styles.timelineTitle}>Hydrafacial -30 Minutos</Text>
             </View>
           </View>
 
@@ -96,7 +97,18 @@ export default function CheckUps() {
             </View>
             <View style={styles.timelineContent}>
               <Text style={styles.timelineDate}>29 de maio de 2025</Text>
-              <Text style={styles.timelineTitle}>Acompanhamento</Text>
+              <Text style={styles.timelineTitle}>MMP Couro Cabeludo</Text>
+            </View>
+          </View>
+
+          {/* Item 6 */}
+          <View style={styles.timelineItem}>
+            <View style={styles.timelineIconContainer}>
+              <Icon name="check-circle-outline" size={20} color={colors.textMuted} />
+            </View>
+            <View style={styles.timelineContent}>
+              <Text style={styles.timelineDate}>10 de fevereiro de 2025</Text>
+              <Text style={styles.timelineTitle}>Discovery Pico</Text>
             </View>
           </View>
         </View>
@@ -118,9 +130,9 @@ export default function CheckUps() {
 }
 
 const styles = StyleSheet.create({
-  container: { 
-    flex: 1, 
-    backgroundColor: colors.background 
+  container: {
+    flex: 1,
+    backgroundColor: colors.background,
   },
   content: {
     padding: 20,
@@ -207,4 +219,3 @@ const styles = StyleSheet.create({
     lineHeight: 20,
   },
 });
-

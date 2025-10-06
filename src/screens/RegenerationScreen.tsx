@@ -1,14 +1,14 @@
 import React from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Text } from 'react-native-paper';
+import { Text, IconButton } from 'react-native-paper';
 import { colors } from '../theme/colors';
 import BottomNavbar from '../components/BottomNavbar';
 import { useRouter } from '../app/router/RouterProvider';
 import Icon from '../design-system/Icon';
 import AppHeader from '../components/AppHeader';
 
-export default function CheckUps() {
+export default function RegenerationScreen() {
   const { navigate, goBack } = useRouter();
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
@@ -23,18 +23,18 @@ export default function CheckUps() {
       <ScrollView contentContainerStyle={styles.content}>
         {/* Título da seção */}
         <View style={styles.titleSection}>
-          <Icon name="clipboard-pulse-outline" size={24} color={colors.textPrimary} />
-          <Text style={styles.sectionTitle}>Checkups</Text>
+          <Icon name="auto-fix" size={24} color={colors.textPrimary} />
+          <Text style={styles.sectionTitle}>Regeneração</Text>
         </View>
 
         {/* Subtítulo */}
         <Text style={styles.subtitle}>
-          Sua trilha de tratamentos a longo prazo
+          Tratamentos para a recuperação da vitalidade da sua pele
         </Text>
 
         {/* Texto principal */}
         <Text style={styles.mainText}>
-          Os checkups são agendamentos feitos para checar a evolução dos tratamentos, para exame físico da pele para checar surgimento de alguma lesão e dar continuidade a sua trilha de cuidados em casa e na clínica.
+          Os tratamentos dermatológicos regenerativos representam uma revolução no cuidado da pele, focando não apenas na estética, mas na saúde como um todo. Eles visam recuperar algo que você perdeu com o tempo para restaurar a estruturação de base que determina o contorno facial bem como a qualidade da pele. Isso vai depender do diagnóstico. Com base na funcionalidade da sua pele criamos um plano de tratamentos regenerativos para restaurar os tecidos que sustentam a pele. Além disso, focamos também em devolver a estrutura e a firmeza da pele - que vão diminuindo com o tempo e com o acúmulo de danos externos que sofremos, como poluição e radiação UV. Depois disso traçamos a trilha de manutenção dos resultados.
         </Text>
 
         {/* Seção de procedimentos */}
@@ -52,29 +52,29 @@ export default function CheckUps() {
             </View>
             <View style={styles.timelineContent}>
               <Text style={styles.timelineDate}>08 de agosto de 2025</Text>
-              <Text style={styles.timelineTitle}>Rever Programação</Text>
+              <Text style={styles.timelineTitle}>Ultraformer MPT - Completo</Text>
             </View>
           </View>
 
           {/* Item 2 */}
           <View style={styles.timelineItem}>
             <View style={styles.timelineIconContainer}>
-              <Icon name="check-circle-outline" size={20} color={colors.textMuted} />
+              <Icon name="calendar-outline" size={20} color={colors.textMuted} />
             </View>
             <View style={styles.timelineContent}>
               <Text style={styles.timelineDate}>17 de setembro de 2025</Text>
-              <Text style={styles.timelineTitle}>Acompanhamento</Text>
+              <Text style={styles.timelineTitle}>Hydrafacial - 30 Minutos</Text>
             </View>
           </View>
 
           {/* Item 3 */}
           <View style={styles.timelineItem}>
             <View style={styles.timelineIconContainer}>
-              <Icon name="check-circle-outline" size={20} color={colors.textMuted} />
+              <Icon name="alert-circle-outline" size={20} color={colors.textMuted} />
             </View>
             <View style={styles.timelineContent}>
               <Text style={styles.timelineDate}>15 de setembro de 2025</Text>
-              <Text style={styles.timelineTitle}>Acompanhamento</Text>
+              <Text style={styles.timelineTitle}>Ultraformer MPT - Completo</Text>
             </View>
           </View>
 
@@ -85,7 +85,7 @@ export default function CheckUps() {
             </View>
             <View style={styles.timelineContent}>
               <Text style={styles.timelineDate}>15 de julho de 2025</Text>
-              <Text style={styles.timelineTitle}>Acompanhamento</Text>
+              <Text style={styles.timelineTitle}>Slimming-Facial</Text>
             </View>
           </View>
 
@@ -96,7 +96,18 @@ export default function CheckUps() {
             </View>
             <View style={styles.timelineContent}>
               <Text style={styles.timelineDate}>29 de maio de 2025</Text>
-              <Text style={styles.timelineTitle}>Acompanhamento</Text>
+              <Text style={styles.timelineTitle}>Slimming-Facial</Text>
+            </View>
+          </View>
+
+          {/* Item 6 */}
+          <View style={styles.timelineItem}>
+            <View style={styles.timelineIconContainer}>
+              <Icon name="check-circle-outline" size={20} color={colors.textMuted} />
+            </View>
+            <View style={styles.timelineContent}>
+              <Text style={styles.timelineDate}>10 de fevereiro de 2025</Text>
+              <Text style={styles.timelineTitle}>Slimming-Facial</Text>
             </View>
           </View>
         </View>
@@ -118,9 +129,9 @@ export default function CheckUps() {
 }
 
 const styles = StyleSheet.create({
-  container: { 
-    flex: 1, 
-    backgroundColor: colors.background 
+  container: {
+    flex: 1,
+    backgroundColor: colors.background,
   },
   content: {
     padding: 20,
@@ -207,4 +218,3 @@ const styles = StyleSheet.create({
     lineHeight: 20,
   },
 });
-

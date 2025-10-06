@@ -2,12 +2,16 @@ import React from 'react';
 import type { RouteName } from './types';
 import LoginScreen from '../../screens/LoginScreen';
 import MainScreen from '../../screens/MainScreen';
-import NextScreen from '../../screens/NextScreen';
+import RegenerationScreen from '../../screens/RegenerationScreen';
 import { useRouter } from './RouterProvider';
 import MessagesScreen from '../../screens/MessagesScreen';
-import AccountScreen from '../../screens/AccountScreen';
+import IdentityScreen from '../../screens/IdentityScreen';
 import Cuidados from '../../screens/CareScreen';
 import CheckUps from '../../screens/CheckUps';
+import MaintenanceScreen from '../../screens/MaintenanceScreen';
+import TrailScreen from '../../screens/TrailScreen';
+import NewsScreen from '../../screens/NewsScreen';
+import ResultsScreen from '../../screens/ResultsScreen';
 
 const screens: Record<RouteName, React.ComponentType> = {
   Login: () => {
@@ -15,11 +19,15 @@ const screens: Record<RouteName, React.ComponentType> = {
     return <LoginScreen onEnter={() => navigate('Main')} />;
   },
   Main: MainScreen,
-  Next: NextScreen,
+  Next: RegenerationScreen,
   Messages: MessagesScreen,
-  Account: AccountScreen,
+  Account: IdentityScreen,
   Care: Cuidados,
   Checkups: CheckUps,
+  Maintenance: MaintenanceScreen,
+  Trail: TrailScreen,
+  News: NewsScreen,
+  Results: ResultsScreen,
 };
 
 export default function ScreenRegistry() {
